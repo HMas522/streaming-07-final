@@ -43,35 +43,25 @@ def main_work():
         channel = connection.channel()
 
         
-        queues = ["smokerA", "jackfruit", "pineapple"]
+        queues = ["gas_euro"]
         for queue_name in queues:
             channel.queue_delete(queue=queue_name)
             channel.queue_declare(queue=queue_name, durable=True)
 
         # Process CSV and send messages to RabbitMQ queues
-        csv_file_path = "C:\\Users\\Hayley\\Documents\\streaming-06-smart-smoker\\smoker-temps.csv"
+        csv_file_path = "C:\\Users\\Hayley\\Documents\\streaming-07-final\\hourly_gasoline_prices.csv"
         with open(csv_file_path, newline='', encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for data_row in reader:
-                timestamp = data_row['Time (UTC)']
-                smoker_temp_str = data_row['Channel1']
-                jackfruit_temp_str = data_row['Channel2']
-                pineapple_temp_str = data_row['Channel3']
+                id_store = data_row[0]
+                isself_str = data_row[1]
+                price_hourly = data_row[2]
+                timestamp = data_row[3]
 
-                if smoker_temp_str:
-                    smoker_temp = float(smoker_temp_str)
-                    send_message(channel, "smokerA", (timestamp, smoker_temp))
-                    logger.info(f" [x] Smoker Temperature is {smoker_temp}")
-
-                if jackfruit_temp_str:
-                    jackfruit_temp = float(jackfruit_temp_str)
-                    send_message(channel, "jackfruit", (timestamp, jackfruit_temp))
-                    logger.info(f" [x] Food A Temperature is {jackfruit_temp}")
-
-                if pineapple_temp_str:
-                    pineapple_temp = float(pineapple_temp_str)
-                    send_message(channel, "pineapple", (timestamp, pineapple_temp))
-                    logger.info(f" [x] Food A Temperature is {pineapple_temp}")
+                if price_hourly:
+                    gas_price = float(price_hourly)
+                    send_message(channel, "gas_euro", (timestamp, gas_price))
+                    logger.info(f" [x] Gas price in euros is {gas_price},{timestamp}")
 
 
     except FileNotFoundError:
