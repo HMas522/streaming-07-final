@@ -54,6 +54,12 @@ Which worker gets which tasks?
 
 ## Reference
 
+- [Kaggle Data Set](https://www.kaggle.com/datasets/alessandrolobello/gasoline-hourly-price-tracker-from-2022?resource=download&select=Hourly_Gasoline_Prices.csv)
+
+- [RabbitMQ Tutorial - Hello, World!](https://www.rabbitmq.com/tutorials/tutorial-one-python.html)
+- [Using Python environments in VS Code](https://code.visualstudio.com/docs/python/environments)
+- [RabbitMQ Get Started](https://www.rabbitmq.com/#getstarted)
+- [What is RabbitMQ? IBM Intro Video 10 min](https://www.youtube.com/watch?v=7rkeORD4jSw)
 - [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)
 
 > Get started with RabbitMQ, a message broker, that enables multiple processes to communicate reliably through an intermediary.
