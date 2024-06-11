@@ -27,18 +27,18 @@ def offer_rabbitmq_admin_site():
        logger.info("Opened RabbitMQ")
 
 # Define the deques and window
-smokerA_deque = deque(maxlen=5)
+gas_deque = deque(maxlen=5)
 
-smoker_drop_threshold = 15.0
+price_drop_threshold = 15.0
 
 # Define gas_eruo callback
-def check_smoker_alert():
+def check_price_alert():
     
-    if len(smokerA_deque) == smokerA_deque.maxlen:
-        initial_temp = smokerA_deque[0][1]
-        latest_temp = smokerA_deque[-1][1]
-        if initial_temp - latest_temp >= smoker_drop_threshold:
-            alert_message = f" [!] Smoker Alert! Temp dropped by {initial_temp - latest_temp}F in 2.5 minutes."
+    if len(gas_deque) == gas_deque.maxlen:
+        initial_price = gas_deque[0][1]
+        latest_price = gas_deque[-1][1]
+        if initial_price - latest_price >= price_drop_threshold:
+            alert_message = f" [!] Price Alert! Eruo price dropped by {initial_price - latest_price} euro in 2.5 minutes."
             print(alert_message)
             logger.info(alert_message)          
 
@@ -56,12 +56,12 @@ def consumer():
         def callback(ch, method, properties, body):
             """Define behavior on getting a message."""
             message = eval(body.decode())
-            timestamp, temp = message
+            id_store, isself_str, timestamp, gas_price = message
             timestamp = datetime.strptime(timestamp, '%m/%d/%y %H:%M:%S')
 
-            if method.routing_key == "smokerA":
-                smokerA_deque.append((timestamp, temp))
-                check_smoker_alert()
+            if method.routing_key == "gas_euro":
+                gas_deque.append((id_store, isself_str, timestamp, gas_price))
+                check_price_alert()
 
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
