@@ -1,5 +1,5 @@
 # Student: Hayley M
-# Date: 08Jun24
+# Date: 11Jun24
 
 # Message listener 
 
@@ -49,7 +49,7 @@ def consumer():
         connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
         channel = connection.channel()
 
-        queues = ["smokerA", "jackfruit", "pineapple"]
+        queues = ["gas_eruo"]
         for queue_name in queues:
             channel.queue_declare(queue=queue_name, durable=True)
 
@@ -62,12 +62,6 @@ def consumer():
             if method.routing_key == "smokerA":
                 smokerA_deque.append((timestamp, temp))
                 check_smoker_alert()
-            elif method.routing_key == "jackfruit":
-                jackfruit_deque.append((timestamp, temp))
-                jackfruit_stall(jackfruit_deque, "jackfruit")
-            elif method.routing_key == "pineapple":
-                pineapple_deque.append((timestamp, temp))
-                pineapple_stall(pineapple_deque, "pineapple")
 
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
