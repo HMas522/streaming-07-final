@@ -1,0 +1,8 @@
+2024-06-11 18:22:06,016.hm_final_consumer.INFO ==================================================
+2024-06-11 18:22:06,017.hm_final_consumer.INFO Today is 2024-06-11 at 06:22 PM
+2024-06-11 18:22:06,017.hm_final_consumer.INFO Running on: nt Windows 10
+2024-06-11 18:22:06,017.hm_final_consumer.INFO Python version:  3.10.11
+2024-06-11 18:22:06,017.hm_final_consumer.INFO Python path: C:\Users\Hayley\Documents\streaming-07-final\.venv
+2024-06-11 18:22:06,018.hm_final_consumer.INFO Working dir: C:\Users\Hayley\Documents\streaming-07-final
+2024-06-11 18:22:06,018.hm_final_consumer.INFO ==================================================
+2024-06-11 18:22:08,812.hm_final_consumer.INFO Opened RabbitMQ

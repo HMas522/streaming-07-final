@@ -56,12 +56,12 @@ def main_work():
                 id_store = data_row['Id']
                 isself_str = data_row['isSelf']
                 price_hourly = data_row['Price']
-                timestamp = data_row['Date']
+                timestamp_str = data_row['Date']
 
                 if price_hourly:
                     gas_price = float(price_hourly)
-                    send_message(channel, "gas_euro", (id_store, isself_str, timestamp, gas_price))
-                    logger.info(f" [x] Gas price in euros is {gas_price},{timestamp}")
+                    send_message(channel, "gas_euro", (id_store, isself_str, timestamp_str, gas_price))
+                    logger.info(f" [x] Gas price in euros is {gas_price},{timestamp_str}")
 
 
     except FileNotFoundError:

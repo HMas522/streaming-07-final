@@ -38,7 +38,8 @@ def check_price_alert():
         initial_price = gas_deque[0][1]
         latest_price = gas_deque[-1][1]
         if initial_price - latest_price >= price_drop_threshold:
-            alert_message = f" [!] Price Alert! Eruo price dropped by {initial_price - latest_price} euro in 2.5 minutes."
+            alert_message = f"{timestamp} [!] Price Alert! Eruo price dropped by {initial_price - latest_price} euro in 2.5 minutes."
+            timestamp = datetime.strptime(timestamp_str, '%m/%d/%y %H:%M:%S')
             print(alert_message)
             logger.info(alert_message)          
 
@@ -49,15 +50,15 @@ def consumer():
         connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
         channel = connection.channel()
 
-        queues = ["gas_eruo"]
+        queues = ["gas_euro"]
         for queue_name in queues:
             channel.queue_declare(queue=queue_name, durable=True)
 
         def callback(ch, method, properties, body):
             """Define behavior on getting a message."""
             message = eval(body.decode())
-            id_store, isself_str, timestamp, gas_price = message
-            timestamp = datetime.strptime(timestamp, '%m/%d/%y %H:%M:%S')
+            id_store, isself_str, timestamp_str, gas_price = message
+            timestamp = datetime.strptime(timestamp_str, '%m/%d/%y %H:%M:%S')
 
             if method.routing_key == "gas_euro":
                 gas_deque.append((id_store, isself_str, timestamp, gas_price))
