@@ -28,13 +28,10 @@ def offer_rabbitmq_admin_site():
 
 # Define the deques and window
 smokerA_deque = deque(maxlen=5)
-jackfruit_deque = deque(maxlen=20)
-pineapple_deque = deque(maxlen=20)
 
 smoker_drop_threshold = 15.0
-food_stall_threshold = 1.0
 
-# Define smoker callback
+# Define gas_eruo callback
 def check_smoker_alert():
     
     if len(smokerA_deque) == smokerA_deque.maxlen:
@@ -43,29 +40,7 @@ def check_smoker_alert():
         if initial_temp - latest_temp >= smoker_drop_threshold:
             alert_message = f" [!] Smoker Alert! Temp dropped by {initial_temp - latest_temp}F in 2.5 minutes."
             print(alert_message)
-            logger.info(alert_message)
-
-# Define Food A callback 
-def jackfruit_stall(deque, food_name):
-
-    if len(jackfruit_deque) == jackfruit_deque.maxlen:
-        initial_temp = deque[0][1]
-        latest_temp = deque[-1][1]
-        if abs(initial_temp - latest_temp) <= food_stall_threshold:
-            alert_message = f" [!] Food Stall Alert! {food_name} temp changed by {abs(initial_temp - latest_temp)}F in 10 minutes."
-            print(alert_message)
-            logger.info(alert_message)
-
-# Define food B callback
-def pineapple_stall(deque, food_name):
-    
-    if len(pineapple_deque) == pineapple_deque.maxlen:
-        initial_temp = deque[0][1]
-        latest_temp = deque[-1][1]
-        if abs(initial_temp - latest_temp) <= food_stall_threshold:
-            alert_message = f"Food Stall Alert! {food_name} temperature changed by {abs(initial_temp - latest_temp)}F in 10 minutes."
-            print(alert_message)
-            logger.info(alert_message)            
+            logger.info(alert_message)          
 
 def consumer():
     """ Continuously listen for task messages on named queues."""
