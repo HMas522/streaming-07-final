@@ -39,7 +39,6 @@ def check_price_alert():
         latest_price = gas_deque[-1][1]
         if initial_price - latest_price >= price_drop_threshold:
             alert_message = f"{timestamp} [!] Price Alert! Eruo price dropped by {initial_price - latest_price} euro in 2.5 minutes."
-            timestamp = datetime.strptime(timestamp_str, '%m/%d/%y %H:%M:%S')
             print(alert_message)
             logger.info(alert_message)          
 
