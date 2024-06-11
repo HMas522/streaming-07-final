@@ -188,6 +188,8 @@ Don't worry - it's just code. We can always revert back (try the 'undo' command 
 # Created producer
 1. Reworked producer. Original producer from module 5 did not properly send all 1,000+ messages properly to RabbitMQ
 
+![Producer screenshot](<Image/producer and log.png>)
+
 # Created consumer
 1. Used deques to monitor a window of readings
 2. Created callbacks for smoker, food A - jackfruit, food B - pineapple
