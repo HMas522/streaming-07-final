@@ -53,14 +53,14 @@ def main_work():
         with open(csv_file_path, newline='', encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for data_row in reader:
-                id_store = data_row[0]
-                isself_str = data_row[1]
-                price_hourly = data_row[2]
-                timestamp = data_row[3]
+                id_store = data_row['Id']
+                isself_str = data_row['isSelf']
+                price_hourly = data_row['Price']
+                timestamp = data_row['Date']
 
                 if price_hourly:
                     gas_price = float(price_hourly)
-                    send_message(channel, "gas_euro", (timestamp, gas_price))
+                    send_message(channel, "gas_euro", (id_store, isself_str, timestamp, gas_price))
                     logger.info(f" [x] Gas price in euros is {gas_price},{timestamp}")
 
 
