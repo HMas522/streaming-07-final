@@ -77,12 +77,12 @@ def main(hn: str = "localhost"):
         channel = connection.channel()
 
         # use the channel to declare a queue
-        channel.queue_declare(queue="gas_euro")
+        channel.queue_declare(queue="gas_euro_listen")
 
         # use the channel to consume messages from the queue
         # on getting a message, execute the logic in the callback function
         channel.basic_consume(
-            queue="gas_euro", on_message_callback=process_message, auto_ack=False
+            queue="gas_euro_listen", on_message_callback=process_message, auto_ack=True
         )
 
         # print a message to the console for the user
