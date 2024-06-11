@@ -186,12 +186,12 @@ Don't worry - it's just code. We can always revert back (try the 'undo' command 
 ## Screenshot - Documentation
 
 # Created producer
-1. Reworked producer. Original producer from module 5 did not properly send all 1,000+ messages properly to RabbitMQ
+1. Reworked producer for module 7 final
 
 ![Producer screenshot](<Image/producer and log.png>)
 
 # Created consumer
 1. Used deques to monitor a window of readings
-2. Created callbacks for smoker, food A - jackfruit, food B - pineapple
+2. Created callbacks for gas queue
 3. Created consume function to recieve callback messages and to acknowledge the message
 
