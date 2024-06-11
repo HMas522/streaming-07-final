@@ -190,6 +190,8 @@ Don't worry - it's just code. We can always revert back (try the 'undo' command 
 
 ![Producer screenshot](<Image/producer and log.png>)
 
+![RabbitMQ gas_euro queue](<Image/RabbitMQ doc.png>)
+
 # Created consumer
 1. Used deques to monitor a window of readings
 2. Created callbacks for gas queue
