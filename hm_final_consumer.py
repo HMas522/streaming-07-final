@@ -56,11 +56,11 @@ def consumer():
         def callback(ch, method, properties, body):
             """Define behavior on getting a message."""
             message = eval(body.decode())
-            id_store, isself_str, timestamp_str, gas_price = message
+            timestamp_str, gas_price = message
             timestamp = datetime.strptime(timestamp_str, '%m/%d/%y %H:%M:%S')
 
             if method.routing_key == "gas_euro":
-                gas_deque.append((id_store, isself_str, timestamp, gas_price))
+                gas_deque.append((timestamp, gas_price))
                 check_price_alert()
 
             ch.basic_ack(delivery_tag=method.delivery_tag)

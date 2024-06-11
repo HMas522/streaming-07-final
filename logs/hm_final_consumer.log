@@ -1,9 +1,9 @@
-2024-06-11 18:31:25,030.hm_final_consumer.INFO ==================================================
-2024-06-11 18:31:25,030.hm_final_consumer.INFO Today is 2024-06-11 at 06:31 PM
-2024-06-11 18:31:25,031.hm_final_consumer.INFO Running on: nt Windows 10
-2024-06-11 18:31:25,031.hm_final_consumer.INFO Python version:  3.10.11
-2024-06-11 18:31:25,031.hm_final_consumer.INFO Python path: C:\Users\Hayley\Documents\streaming-07-final\.venv
-2024-06-11 18:31:25,031.hm_final_consumer.INFO Working dir: C:\Users\Hayley\Documents\streaming-07-final
-2024-06-11 18:31:25,032.hm_final_consumer.INFO ==================================================
-2024-06-11 18:31:27,762.hm_final_consumer.INFO Opened RabbitMQ
-2024-06-11 18:31:27,779.hm_final_consumer.ERROR An unexpected error occurred: time data '2022-01-01 11:45:53' does not match format '%m/%d/%y %H:%M:%S'
+2024-06-11 18:33:44,130.hm_final_consumer.INFO ==================================================
+2024-06-11 18:33:44,130.hm_final_consumer.INFO Today is 2024-06-11 at 06:33 PM
+2024-06-11 18:33:44,130.hm_final_consumer.INFO Running on: nt Windows 10
+2024-06-11 18:33:44,130.hm_final_consumer.INFO Python version:  3.10.11
+2024-06-11 18:33:44,131.hm_final_consumer.INFO Python path: C:\Users\Hayley\Documents\streaming-07-final\.venv
+2024-06-11 18:33:44,131.hm_final_consumer.INFO Working dir: C:\Users\Hayley\Documents\streaming-07-final
+2024-06-11 18:33:44,131.hm_final_consumer.INFO ==================================================
+2024-06-11 18:33:46,579.hm_final_consumer.INFO Opened RabbitMQ
+2024-06-11 18:33:46,608.hm_final_consumer.ERROR An unexpected error occurred: time data '2022-01-01 11:45:53' does not match format '%m/%d/%y %H:%M:%S'
